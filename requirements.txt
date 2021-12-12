@@ -13,3 +13,5 @@ openpyxl
 pandas
 bs4
 loguru
+starlette
+uvicorn

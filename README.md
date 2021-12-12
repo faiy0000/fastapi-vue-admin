@@ -42,6 +42,7 @@ python main.py
 ```
 
 ## 初始化数据
+mysql -uroot -p
 表结构创建完成后执行目录下的init.sql文件插入初始数据
 
 ### 查看项目swagger
