@@ -1,4 +1,5 @@
 from models.base import Base
+# from models.base import base_data
 from sqlalchemy import Column, String, Boolean, DateTime, BigInteger
 from passlib.context import CryptContext
 from datetime import datetime
@@ -32,3 +33,8 @@ class User(Base):
 
     def __repr__(self):
         return f"<User(username={self.username},email={self.email})>"
+
+# def base_createTable_users():
+#     # base_data = ZcylData()
+#     Base.metadata.drop_all(base_data.engine)
+#     Base.metadata.create_all(base_data.engine)

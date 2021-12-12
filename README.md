@@ -1,8 +1,11 @@
 # fastapi-vue-admin
 使用fastapi和vue-element-admin构建的管理后台
-
 目前配置直接写在配置文件中,生产环境推荐使用Nacos作为配置中心
 
+在pycharm中安装库不成功，ssl认证报错， 需要将anaconda的三个环境变量设置上，另外需要
+将anaconda中的ssl文件路径加入环境，并增加淘宝，清华等国内的源，将上述源设置为可信源。
+参见：
+https://blog.csdn.net/ZYX19950825/article/details/100013420?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.no_search_link&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.no_search_link
 ## 项目初始化
 ```shell script
 pip install -r requirements.txt -i  https://pypi.tuna.tsinghua.edu.cn/simple
@@ -34,17 +37,26 @@ target_metadata = Base.metadata
 生成执行文件
 alembic revision --autogenerate -m "first commit"
 alembic upgrade head
+
+# base_main 数据库引擎及会话
+#初始化删除已有数据库表，并重新生成数据库表，没有使用alembic
 ```
 
+
+## 初始化数据
+
+# (mysql -uroot -p)
+表结构创建完成后执行目录下的init.sql文件插入初始数据
 ## 项目启动
 ```shell script
 python main.py
+
+测试接口 ，使用apifox工具测试，
+http://127.0.0.1:8999/api/login/
+
+username	是	admin	
+password	是	123456
 ```
-
-## 初始化数据
-mysql -uroot -p
-表结构创建完成后执行目录下的init.sql文件插入初始数据
-
 ### 查看项目swagger
 访问http://localhost:端口号/docs即可
 
